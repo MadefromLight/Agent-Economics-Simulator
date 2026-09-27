@@ -1,0 +1,1 @@
+import test from "node:test";import assert from "node:assert/strict";import {simulate} from "../src/index.js";test("simulates",()=>{const r=simulate({tasks:100,successRate:.9,modelCostPerTask:1,toolCostPerTask:.5,reviewRate:.1,reviewCost:2,fixedCost:50,revenuePerSuccessfulTask:5});assert.equal(r.grossMargin,280)});
