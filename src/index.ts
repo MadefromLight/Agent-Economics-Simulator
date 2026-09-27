@@ -1,0 +1,3 @@
+export interface Model {tasksPerMonth:number;successRate:number;revenuePerTask:number;modelCostPerTask:number;toolCostPerTask:number;humanReviewRate:number;reviewCost:number;fixedMonthlyCost:number;}
+export interface Projection {tasks:number;successful:number;revenue:number;variableCost:number;fixedCost:number;profit:number;margin:number;}
+export function simulate(m:Model):Projection { const successful=m.tasksPerMonth*m.successRate; const revenue=successful*m.revenuePerTask; const variableCost=m.tasksPerMonth*(m.modelCostPerTask+m.toolCostPerTask+m.humanReviewRate*m.reviewCost); const profit=revenue-variableCost-m.fixedMonthlyCost; return {tasks:m.tasksPerMonth,successful,revenue,variableCost,fixedCost:m.fixedMonthlyCost,profit,margin:revenue===0?0:profit/revenue}; }
