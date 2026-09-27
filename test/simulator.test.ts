@@ -1,0 +1,2 @@
+import test from "node:test";import assert from "node:assert/strict";import {simulate} from "../src/index.js";
+test("calculates projection",()=>{const p=simulate({tasksPerMonth:100,successRate:.9,revenuePerTask:10,modelCostPerTask:1,toolCostPerTask:1,humanReviewRate:.1,reviewCost:5,fixedMonthlyCost:100});assert.equal(p.revenue,900);assert.equal(p.profit,650);});
